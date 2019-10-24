@@ -1,22 +1,88 @@
-.App {
+.container {
+  display: flex;  
+  flex-flow: row wrap;
+  font-weight: bold;
+  text-align: center;
+  background-color: burlywood;
+}
+
+.main {
+  display: flex;  
+  flex-flow: row wrap;
+  font-weight: bold;
+  align-items: center;
+  justify-content: center;
+}
+
+.drop-downs {
+  display: flex;  
+  flex-flow: column;
+  font-weight: bold;
+  text-align: center;
+  padding-right: 5px;
+}
+
+.weather-box {
+  display: flex;  
+  flex-flow: row wrap;
+  font-weight: bold;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-}
+.container > * {
+  padding: 10px;
+  flex: 1 100%;
+  }
+  
+  .header {
+  background: tomato;
+  flex-direction: row;
+  text-align: left;
+  }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
+.continents{
+  background: gold;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin: 30px;
 }
 
-.App-link {
-  color: #09d3ac;
+.country{
+  background: pink;
+  flex-direction: column;
+  margin: 30px;
+}
+
+.city{
+  background: orange;
+  flex-direction: column;
+  margin: 30px;
+}
+.background-box{
+  background-color: deepskyblue;
+  width: 500px;
+  height: 300px;
+}
+
+.selected-city{
+  text-align: left;
+  flex-direction: row;
+  color: black;
+}
+
+.buttom{
+  background: lightgreen;
+  flex-direction: row;
+  text-align: right;
+}
+
+
+
+@media all and (min-width: 600px) {
+.aside { flex: 1 0 0; }
+}
+
+
+
+body {
+padding: 2em; 
 }

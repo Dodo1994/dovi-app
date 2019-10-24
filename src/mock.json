@@ -1,0 +1,39 @@
+{   "continents":[{
+    "name": "Asia",
+    "id": "AS",
+    "countries": [
+        {"name": "Israel",
+            "id": "IL",
+            "cities":[
+                {"name": "Tel-Aviv","id": "TLV"},
+                {"name": "Petach-Tikvah","id": "PET"}
+            ]
+        },
+        {"name": "India",
+            "id": "IN",
+            "cities":[
+                {"name": "Mumbai","id": "MUM"},
+                {"name": "New-Delhi","id": "NED"}
+            ]
+        }
+    ]},
+    {
+        "name": "North-America",
+        "id": "NA",
+        "countries": [
+            {"name": "United-States",
+                "id": "US",
+                "cities":[
+                    {"name": "New-York","id": "NYC"},
+                    {"name": "Detroit","id": "DTW"}
+                ]
+            },
+            {"name": "Canada",
+                "id": "CA",
+                "cities":[
+                    {"name": "Toronto","id": "TOR"},
+                    {"name": "Montreal","id": "MON"}
+                ]
+            }
+        ]}]
+  }

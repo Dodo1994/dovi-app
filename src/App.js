@@ -1,26 +1,94 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import './App.css'
+import ContinentDropdown from './components/ContinentDropdown'
+import CountryDropdown from './components/CountryDropdown'
+import CityDropdown from './components/CityDropdown'
+import SelectedCity from './components/SelectedCity'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor (props) {
+    super(props);
+    this.state = { continent: '', country: '' , city: ''};
+    this.countryElement = React.createRef();
+    this.cityElement = React.createRef();
+  }
+
+  selectContinent (val) {
+    if(val==='Continents..'){
+      this.setState({ 
+        continent: '' , country: '' , city: ''
+      });
+    }
+    else{
+    this.setState({ 
+      continent: val , country: '' , city: ''
+    });}
+    this.countryElement.current.updateContinent(val);
+    this.cityElement.current.updateContinent(val);
+    this.cityElement.current.updateCountry('');
+  }
+
+  selectCountry (val) {
+    if(val==='Countries..'){
+      this.setState({ 
+        country: '' , city: ''
+      });
+    }
+    else{
+    this.setState({ country: val , city: ''});}
+    this.cityElement.current.updateCountry(val);
+  }
+
+  selectCity (val) {
+    if(val==='Cities..'){
+      this.setState({ 
+        city: ''
+      });
+    }
+    else{
+    this.setState({ city: val });}
+  }
+
+  render () {
+    const { continent, country , city} = this.state;
+    return (
+      <div className="container">
+        <div className="header"><h1>Location</h1></div>
+        <div className="main">
+        <div className="drop-downs">
+        <ContinentDropdown
+          name="continents"
+          value={continent}
+          onChange={(val) => this.selectContinent(val)} />
+        <CountryDropdown
+          ref={this.countryElement}
+          name="country"
+          continent={continent}
+          value={country}
+          disabled={!continent}
+          onChange={(val) => this.selectCountry(val)} />
+          <CityDropdown
+          ref={this.cityElement}
+          name="city"
+          continent={continent}
+          country={country}
+          disabled={!continent || !country}
+          value={city}
+          onChange={(val) => this.selectCity(val)} />
+          </div>
+          <div className="weather-box">
+          <SelectedCity 
+          disabled={!continent || !country || !city} 
+          name="selected-city" 
+          city={city}
+          onChange={(val) => this.selectCity(val)}
+          />
+          </div>
+          </div>
+          <div className="buttom"><h1>Online</h1></div>
+      </div>
+    );
+  }
 }
 
-export default App;
+export default App
