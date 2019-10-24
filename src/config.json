@@ -1,8 +1,0 @@
-{
-    "openWeather" : {
-        "endpoint": "https://api.openweathermap.org/data/2.5/weather?q="
-    },
-    "reverseGeo" : {
-        "endpoint": "https://maps.googleapis.com/maps/api/geocode/json?sensor=true&latlng="
-    }
-}

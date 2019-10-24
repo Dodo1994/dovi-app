@@ -61,12 +61,14 @@
   background-color: deepskyblue;
   width: 500px;
   height: 300px;
+  align-items: center;
 }
 
 .selected-city{
   text-align: left;
   flex-direction: row;
   color: black;
+  align-items: center;
 }
 
 .buttom{

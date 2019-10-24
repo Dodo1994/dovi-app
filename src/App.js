@@ -11,6 +11,7 @@ class App extends Component {
     this.state = { continent: '', country: '' , city: ''};
     this.countryElement = React.createRef();
     this.cityElement = React.createRef();
+    this.weatherElement = React.createRef();
   }
 
   selectContinent (val) {
@@ -26,6 +27,8 @@ class App extends Component {
     this.countryElement.current.updateContinent(val);
     this.cityElement.current.updateContinent(val);
     this.cityElement.current.updateCountry('');
+    this.weatherElement.current.updateWeatherCountry('');
+    this.weatherElement.current.updateWeatherCity('');
   }
 
   selectCountry (val) {
@@ -37,6 +40,7 @@ class App extends Component {
     else{
     this.setState({ country: val , city: ''});}
     this.cityElement.current.updateCountry(val);
+    this.weatherElement.current.updateWeatherCountry(val);
   }
 
   selectCity (val) {
@@ -47,6 +51,7 @@ class App extends Component {
     }
     else{
     this.setState({ city: val });}
+    this.weatherElement.current.updateWeatherCity(val);
   }
 
   render () {
@@ -78,8 +83,11 @@ class App extends Component {
           </div>
           <div className="weather-box">
           <SelectedCity 
+          ref={this.weatherElement}
           disabled={!continent || !country || !city} 
           name="selected-city" 
+          continent={continent}
+          country={country}
           city={city}
           onChange={(val) => this.selectCity(val)}
           />

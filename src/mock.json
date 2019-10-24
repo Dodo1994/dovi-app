@@ -5,26 +5,26 @@
         {"name": "Israel",
             "id": "IL",
             "cities":[
-                {"name": "Tel-Aviv","id": "TLV"},
-                {"name": "Petach-Tikvah","id": "PET"}
+                {"name": "Tel Aviv","id": "TLV"},
+                {"name": "Haifa","id": "HAI"}
             ]
         },
         {"name": "India",
             "id": "IN",
             "cities":[
                 {"name": "Mumbai","id": "MUM"},
-                {"name": "New-Delhi","id": "NED"}
+                {"name": "New Delhi","id": "NED"}
             ]
         }
     ]},
     {
-        "name": "North-America",
+        "name": "North America",
         "id": "NA",
         "countries": [
-            {"name": "United-States",
+            {"name": "United States",
                 "id": "US",
                 "cities":[
-                    {"name": "New-York","id": "NYC"},
+                    {"name": "New York","id": "NYC"},
                     {"name": "Detroit","id": "DTW"}
                 ]
             },
