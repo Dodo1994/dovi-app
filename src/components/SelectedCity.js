@@ -16,11 +16,11 @@ class SelectedCity extends Component {
         this.getWeather = this.getWeather.bind(this)
     }
 
-    getWeather = async () => {
-        const api_call = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${this.state.city},${this.state.country}&units=metric&appid=${api_key}`);
+    getWeather = async (ci,co) => {
+        const api_call = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${ci},${co}&units=metric&appid=${api_key}`);
         const response = await api_call.json();
         console.log(response)
-        if(this.state.city && this.state.country)
+        if(ci && co)
         this.setState({
             temperature: response.main.temp
         })
