@@ -52,6 +52,7 @@ class App extends Component {
     else{
     this.setState({ city: val });}
     this.weatherElement.current.updateWeatherCity(val);
+    this.weatherElement.current.getWeather()
   }
 
   render () {

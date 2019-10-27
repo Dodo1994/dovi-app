@@ -1,17 +1,24 @@
+.body{
+  margin: 0;
+}
+
 .container {
   display: flex;  
   flex-flow: row wrap;
   font-weight: bold;
   text-align: center;
-  background-color: burlywood;
 }
 
 .main {
-  display: flex;  
+  display: flex;
   flex-flow: row wrap;
   font-weight: bold;
+  top: 60px;
+  bottom: 20px;
   align-items: center;
   justify-content: center;
+  width: 95%;
+
 }
 
 .drop-downs {
@@ -75,6 +82,9 @@
   background: lightgreen;
   flex-direction: row;
   text-align: right;
+  position: absolute;
+  bottom: 0;
+  width: 95%;
 }
 
 

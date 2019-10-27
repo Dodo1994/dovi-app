@@ -13,10 +13,11 @@ class SelectedCity extends Component {
         }
         this.updateWeatherCity = this.updateWeatherCity.bind(this)
         this.updateWeatherCountry = this.updateWeatherCountry.bind(this)
+        this.getWeather = this.getWeather.bind(this)
     }
 
     getWeather = async () => {
-        const api_call = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${this.state.city},${this.state.country}&units=imerial&appid=${api_key}`);
+        const api_call = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${this.state.city},${this.state.country}&units=metric&appid=${api_key}`);
         const response = await api_call.json();
         console.log(response)
         if(this.state.city && this.state.country)
@@ -45,10 +46,9 @@ class SelectedCity extends Component {
 			disabled
         };
         if(!disabled)
-        this.getWeather()
-        var temp = (this.state.temperature / 10).toFixed(2);
-        const tempa = temp;
-        const title = !disabled ? ('The selected city is: '+ city +'\nand the tempature is ' + tempa + ' degrees'): '';
+        var temp = (this.state.temperature - 273.15).toFixed(2);
+        const tempa = this.state.temperature;
+        const title = !disabled ? ('The selected city is: '+ city +' and the tempature is ' + tempa + ' degrees'): '';
         return (
             <div className="background-box">
             <h3 className={name}>{title}</h3>
